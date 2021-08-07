@@ -36,7 +36,10 @@ def monty_hall_sim(switch: bool) -> bool:
 
 tries = 100000  # Number of Monty Hall problem simulations to run.
 switch = True  # Whether to switch doors at the end.
-wins = [win for win in [True] * tries if monty_hall_sim(switch)]  # Length of the list is the number of times the function monty_hall_sim returns True (i.e. that the correct door was chosen).
+wins = 0
+for simulation in range(tries):  # Readability over performance, in this case.
+	if monty_hall_sim(switch):
+		wins += 1
 convert_to_percent = 100 / tries
 
-print(f"Number of wins in scenario where option to switch is set to {switch} is {len(wins)} out of {tries}, percentage = {round(convert_to_percent * len(wins), 2)} %")
+print(f"Number of wins in scenario where option to switch is set to {switch} is {wins} out of {tries}, percentage = {round(convert_to_percent * wins, 2)} %")
