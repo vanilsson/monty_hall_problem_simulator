@@ -4,7 +4,7 @@ how many simulations that are to be run. Displays the result at the end.
 
 Author: Victor Nilsson
 Date: 2021-08-07
-Github: vanilsson
+Github: vcrn
 """
 
 import random
@@ -14,7 +14,7 @@ def monty_hall_sim(switch: bool) -> bool:
     """
     Simulates the scenario described in the Monty Hall problem.
 
-    :param switch: If a switch of doors it to be done at the end.
+    :param switch: If a switch of doors is to be done at the end.
     :return: If the correct door was selected in the end.
     """
     possible_doors = {1, 2, 3}
@@ -36,14 +36,15 @@ def monty_hall_sim(switch: bool) -> bool:
         return False
 
 
-tries = 1000000  # Number of Monty Hall problem simulations to run.
-switch = True  # Whether to switch doors at the end.
+if __name__ == "__main__":
+    tries = 1000000  # Number of Monty Hall problem simulations to run.
+    switch = True  # Whether to switch doors at the end.
 
-wins = 0
-for simulation in range(tries):  # Readability over performance, in this case.
-    if monty_hall_sim(switch):
-        wins += 1
+    wins = 0
+    for simulation in range(tries):  # Readability over performance, in this case.
+        if monty_hall_sim(switch):
+            wins += 1
 
-print(
-    f"Number of wins in scenario where option to switch is set to {switch}: \n{wins} out of {tries}, "
-    f"percentage = {round(100 * wins / tries, 2)} %")
+    print(
+        f"Number of wins in scenario where option to switch is set to {switch}: \n{wins} out of {tries}, "
+        f"percentage = {round(100 * wins / tries, 2)} %")
